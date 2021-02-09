@@ -44,7 +44,7 @@ public class Board {
 		ligne1 += "  Frappes :";
 		System.out.println(ligne1);
 		
-		String alphabet = "A B C D E F G H I J K L M N O P Q R S t u V W X Y Z";
+		String alphabet = "A B C D E F G H I J K L M N O P Q R S t U V W X Y Z";
 		System.out.println("   " + alphabet.substring(0,tailleTableau*2-1) + "      " + alphabet.substring(0,tailleTableau*2-1));
 		
 		for(int i=0; i<tailleTableau; i++)
