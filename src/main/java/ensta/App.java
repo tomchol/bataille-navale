@@ -4,10 +4,14 @@ package ensta;
  * Hello world!
  *
  */
+
 public class App 
 {
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
+		Board b1 = new Board("Tom", 7);
+		
+		b1.print();
     }
 }
+
