@@ -1,3 +1,5 @@
+package ensta;
+
 abstract class AbstractShip {
 
 	protected Label label; 

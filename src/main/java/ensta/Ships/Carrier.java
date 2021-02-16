@@ -1,3 +1,5 @@
+package ensta;
+
 class Carrier extends AbstractShip {
 	
 	Carrier(Orientation orientation){

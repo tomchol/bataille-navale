@@ -1,3 +1,5 @@
+package ensta;
+
 class Destroyer extends AbstractShip {
 	
 	Destroyer(Orientation orientation){
