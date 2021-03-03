@@ -40,50 +40,60 @@ public class Board implements IBoard{
 	
 	public void putShip(AbstractShip ship, int x, int y)
 	{
-		x--; y--;
-		for(int i=0; i<ship.getTaille(); i++)
+		if (x <0 || x >= tailleTableau || y<0 || y>=tailleTableau) throw new IllegalArgumentException("Le navire sort de la grille");
+		for(int i=0; i<ship.getLength(); i++) 
 		{
 			switch(ship.orientation)
 			{
 				case EAST:
-					if(x+ship.getTaille()-1 >= tailleTableau) throw new IllegalArgumentException("Le navire sort de la grille");
-					if (hasShip(x+i+1, y+1)) throw new IllegalArgumentException("Le navire chevauche un autre navire");
+					if(x+i >= tailleTableau) throw new IllegalArgumentException("Le navire sort de la grille");
+					if (hasShip(x+i, y)) throw new IllegalArgumentException("Le navire chevauche un autre navire");
+					break;
+				case NORTH:
+					if(y-i < 0) throw new IllegalArgumentException("Le navire sort de la grille");
+					if (hasShip(x, y-i)) throw new IllegalArgumentException("Le navire chevauche un autre navire");
+					break;
+				case SOUTH:
+					if(y+i >= tailleTableau) throw new IllegalArgumentException("Le navire sort de la grille");
+					if (hasShip(x, y+i)) throw new IllegalArgumentException("Le navire chevauche un autre navire");
+					break;
+				case WEST:
+					if(x-i < 0) throw new IllegalArgumentException("Le navire sort de la grille");
+					if (hasShip(x-i, y)) throw new IllegalArgumentException("Le navire chevauche un autre navire");
+			}
+		}
+		for(int i=0; i<ship.getLength(); i++) 
+		{
+			switch(ship.orientation)
+			{
+				case EAST:
 					navires[x + i + y*tailleTableau] = ship.getLabel();
 					break;
 				case NORTH:
-					if(y-ship.getTaille()+1 < 0) throw new IllegalArgumentException("Le navire sort de la grille");
-					if (hasShip(x+1, y-i+1)) throw new IllegalArgumentException("Le navire chevauche un autre navire");
 					navires[x + (y-i)*tailleTableau] = ship.getLabel();
 					break;
 				case SOUTH:
-					if(y+ship.getTaille()-1 >= tailleTableau) throw new IllegalArgumentException("Le navire sort de la grille");
-					if (hasShip(x+1, y+i+1)) throw new IllegalArgumentException("Le navire chevauche un autre navire");
 					navires[x + (y+i)*tailleTableau] = ship.getLabel();
 					break;
 				case WEST:
-					if(x-ship.getTaille()+1 < 0) throw new IllegalArgumentException("Le navire sort de la grille");
-					if (hasShip(x-i+1, y+1)) throw new IllegalArgumentException("Le navire chevauche un autre navire");
 					navires[x - i + y*tailleTableau] = ship.getLabel();
 			}
 		}	
-		navires[x + y*tailleTableau] = ship.getLabel();	
+	
 	}
 	
 	public boolean hasShip(int x, int y)
 	{
-		x--;y--;
 		return (navires[x + y*tailleTableau]) != '.';
 	}
 	
 	public void setHit(boolean hit, int x, int y)
 	{
-		x--;y--;
 		frappes[x + y*tailleTableau] = hit;
 	}
 	
 	public Boolean getHit(int x, int y)
 	{
-		x--;y--;
 		return frappes[x + y*tailleTableau];
 	}
 	

@@ -19,10 +19,10 @@ abstract class AbstractShip {
 		this.orientation = orientation;
 	}
 
-	public String getNom() {
+	public String getName() {
 		return nom;
 	}
-	public int getTaille() {
+	public int getLength() {
 		return taille;
 	}
 	public Orientation getOrientation() {
