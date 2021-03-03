@@ -3,11 +3,11 @@ package ensta;
 class Submarine extends AbstractShip {
 	
 	Submarine(Orientation orientation){
-		super("Submarine", Label.S, 3, orientation);
+		super("Submarine", 'S', 3, orientation);
 	}
 	
 	Submarine(){
-		super("Submarine", Label.S, 3, Orientation.EAST);
+		super("Submarine", 'S', 3, Orientation.EAST);
 	}
 
 }

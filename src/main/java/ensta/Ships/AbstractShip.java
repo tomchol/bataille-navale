@@ -2,13 +2,13 @@ package ensta;
 
 abstract class AbstractShip {
 
-	protected Label label; 
+	protected char label; 
 	protected String nom;
 	protected int taille;
 	protected Orientation orientation;
 	
 	
-	public AbstractShip(String nom, Label label, int taille, Orientation orientation) {
+	public AbstractShip(String nom, char label, int taille, Orientation orientation) {
 		this.nom = nom;
 		this.label = label;
 		this.taille = taille;
@@ -28,7 +28,7 @@ abstract class AbstractShip {
 	public Orientation getOrientation() {
 		return orientation;
 	}
-	public Label getLabel() {
+	public char getLabel() {
 		return label;
 	}
 }
