@@ -22,6 +22,7 @@ public enum Hit {
         this.value = value;
         this.label = label;
     }
+    
 
     /* ***
      * Méthodes
