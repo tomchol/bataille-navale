@@ -101,10 +101,10 @@ public class Board implements IBoard{
 	{
 		if (ships[x + tailleTableau*y].getShip() != null)
 		{
-			if (ships[x + tailleTableau*y].isStrunck()) return null;
+			if (ships[x + tailleTableau*y].isStrunck()) return Hit.MISS;
 			ships[x + y*tailleTableau].addStrike();
 			if (ships[x + tailleTableau*y].isSunk()){
-				System.out.println(ships[x + tailleTableau*y].getShip().getLabel() + " a ete coule");			
+				System.out.println(ships[x + tailleTableau*y].getShip().getLabel() + " a été coulé");			
 				return Hit.fromInt(ships[x + tailleTableau*y].getShip().getLength());
 			}
 

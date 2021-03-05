@@ -39,7 +39,7 @@ abstract class AbstractShip {
 	}
 
 	public boolean isSunk() {
-		return (strikeCount == taille);
+		return (strikeCount >= taille);
 	}
 
 }
