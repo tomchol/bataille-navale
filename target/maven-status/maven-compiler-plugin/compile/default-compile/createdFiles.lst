@@ -7,12 +7,15 @@ ensta/Orientation.class
 ensta/Carrier.class
 ensta/InputHelper.class
 ensta/IBoard.class
+ensta/TestGame.class
 ensta/App.class
 ensta/InputHelper$CoordInput.class
 ensta/InputHelper$ShipInput.class
+ensta/AIPlayer.class
 ensta/Board$1.class
 ensta/Submarine.class
 ensta/ColorUtil.class
 ensta/ShipState.class
 ensta/ColorUtil$Color.class
 ensta/Battleship.class
+ensta/BattleShipsAI.class
