@@ -3,28 +3,28 @@ package ensta;
 /**
  * Board class
  * @param nom le nom du jour
- * @param navires le tableau avec les bateaux du joueur
- * @param frappes pour les tir effectues
+ * @param ships le tableau avec les bateaux du joueur
+ * @param hits pour les tir effectues
  * @param tailleTableau pour la taille du tableau
  */
 
 public class Board implements IBoard{
 
 	private String nom;
-	private char[] navires;
-	private boolean[] frappes;
+	private ShipState[] ships;
+	private Boolean[] hits;
 	private int tailleTableau;
 	
 	public Board(String nom, int tailleTableau)
 	{
 		this.nom = nom;
 		this.tailleTableau = tailleTableau;
-		this.navires = new char[tailleTableau*tailleTableau];
-		this.frappes = new boolean[tailleTableau*tailleTableau];
+		this.ships = new ShipState[tailleTableau*tailleTableau];
+		this.hits = new Boolean[tailleTableau*tailleTableau];
 		for(int i=0; i<tailleTableau*tailleTableau; i++)
 		{
-			this.navires[i] = '.';
-			this.frappes[i] = false;
+			this.ships[i] = new ShipState();
+			this.hits[i] = null;
 		}
 	}
 	
@@ -67,16 +67,16 @@ public class Board implements IBoard{
 			switch(ship.orientation)
 			{
 				case EAST:
-					navires[x + i + y*tailleTableau] = ship.getLabel();
+					ships[x + i + y*tailleTableau] = new ShipState(ship);
 					break;
 				case NORTH:
-					navires[x + (y-i)*tailleTableau] = ship.getLabel();
+					ships[x + (y-i)*tailleTableau] = new ShipState(ship);
 					break;
 				case SOUTH:
-					navires[x + (y+i)*tailleTableau] = ship.getLabel();
+					ships[x + (y+i)*tailleTableau] = new ShipState(ship);
 					break;
 				case WEST:
-					navires[x - i + y*tailleTableau] = ship.getLabel();
+					ships[x - i + y*tailleTableau] = new ShipState(ship);
 			}
 		}	
 	
@@ -84,17 +84,17 @@ public class Board implements IBoard{
 	
 	public boolean hasShip(int x, int y)
 	{
-		return (navires[x + y*tailleTableau]) != '.';
+		return (ships[x + y*tailleTableau].getShip() != null);
 	}
 	
-	public void setHit(boolean hit, int x, int y)
+	public void setHit(Boolean hit, int x, int y)
 	{
-		frappes[x + y*tailleTableau] = hit;
+		hits[x + y*tailleTableau] = hit;
 	}
 	
 	public Boolean getHit(int x, int y)
 	{
-		return frappes[x + y*tailleTableau];
+		return hits[x + y*tailleTableau];
 	}
 	
 
@@ -118,10 +118,10 @@ public class Board implements IBoard{
 			String ligneFrappes = "";
 			for(int j =0; j<tailleTableau; j++)
 			{
-				ligneNavires += navires[j + i*tailleTableau] + " ";
-				
-				if(frappes[j + i*tailleTableau]) ligneFrappes += "X ";
-				else ligneFrappes += ". ";
+				ligneNavires += ships[j + i*tailleTableau].toString() + " ";
+				if(hits[j + i*tailleTableau] == null) ligneFrappes += ". ";
+				else if(hits[j + i*tailleTableau] == true) ligneFrappes += ColorUtil.colorize("X ", ColorUtil.Color.RED);
+				else ligneFrappes += "X ";
 			}
 			if (i+1<10) System.out.println((i+1) + "  " + ligneNavires + "  " + (i+1) + "  " + ligneFrappes);
 			else System.out.println((i+1) + " " + ligneNavires + "  " + (i+1) + " " + ligneFrappes);
