@@ -2,7 +2,7 @@
 
 Projet java pour créer un jeu de bataille navale.
 
-Les différentes fonctionnalités pour jouer à la bataille navale sans problèmes contre un ordinateur ont été implémentés. 
+Les différentes fonctionnalités pour jouer à la bataille navale sans problèmes contre un ordinateur ont été implémentées. 
 
 # Build
 
