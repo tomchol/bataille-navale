@@ -32,6 +32,11 @@ public class ShipState {
         return struck;
     }
 
+    public boolean isSunk() 
+    {
+        return ship.isSunk();
+    }
+
     public String toString(){
         String st = "";
         if (ship != null)

@@ -2,6 +2,7 @@ ensta/Destroyer.class
 ensta/Player.class
 ensta/AbstractShip.class
 ensta/Board.class
+ensta/Hit.class
 ensta/Orientation.class
 ensta/Carrier.class
 ensta/InputHelper.class

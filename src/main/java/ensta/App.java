@@ -18,11 +18,12 @@ public class App
 		Player Tom = new Player(board, mechant, ships);
 		Tom.putShips();
 		Tom.board.setHit(true,5,5);
-		Tom.board.print();
 		Tom.board.setHit(false,9,9);
 		Tom.board.print();
-		System.out.println(Tom.board.hasShip(1, 1));
-		System.out.println(Tom.board.hasShip(5,5));
+		Tom.board.sendHit(0,0);
+		Tom.board.sendHit(0,1);
+		Tom.board.sendHit(0,2);
+		Tom.board.print();
 	}
 }
 
