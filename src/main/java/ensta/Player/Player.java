@@ -70,6 +70,11 @@ public class Player {
         } while (!done);
     }
 
+    /**
+     * Choose where to hit and send this hit to the opponent
+     * @param coords array must be of size 2. Will hold the coord of the send hit.
+     * @return the status of the hit.
+     */
     public Hit sendHit(int[] coords) {
         boolean done = false;
         Hit hit = null;
@@ -97,10 +102,18 @@ public class Player {
         return hit;
     }
 
+    /**
+     * Get the ships of the player
+     * @return the ships of the player
+     */
     public AbstractShip[] getShips() {
         return ships;
     }
 
+    /**
+     * Place the ships we need on the board
+     * @param ships list of the ships to be placed
+     */
     public void setShips(AbstractShip[] ships) {
         this.ships = ships;
     }

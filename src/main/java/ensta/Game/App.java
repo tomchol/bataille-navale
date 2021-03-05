@@ -1,10 +1,6 @@
 package ensta;
 import java.util.*;
 
-/**
- * Hello world!
- *
- */
 
 public class App 
 {

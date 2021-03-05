@@ -1,13 +1,5 @@
 package ensta;
 
-/**
- * Board class
- * @param nom le nom du jour
- * @param ships le tableau avec les bateaux du joueur
- * @param hits pour les tir effectues
- * @param tailleTableau pour la taille du tableau
- */
-
 public class Board implements IBoard{
 
 	private String nom;
@@ -38,6 +30,13 @@ public class Board implements IBoard{
 		return tailleTableau;
 	}
 	
+	/**
+     * Put a ship at the given position
+	 * @param ship
+     * @param x
+     * @param y
+     */
+
 	public void putShip(AbstractShip ship, int x, int y)
 	{
 		if (x <0 || x >= tailleTableau || y<0 || y>=tailleTableau) throw new IllegalArgumentException("Le navire sort de la grille");
